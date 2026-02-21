@@ -151,4 +151,4 @@ Migrar a base de datos más robusta si fuera necesario
 Proyecto en desarrollo activo.
 Construido paso a paso con enfoque técnico, práctico y escalable.
 
-Desarrolado por Matias Jyaiy.
+Desarrollado por Matias Jyaiy como parte de su formación en backend profesional.
