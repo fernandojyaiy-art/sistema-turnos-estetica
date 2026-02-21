@@ -1,59 +1,154 @@
-# Sistema de Gestión de Turnos - Estética
 
-Proyecto backend desarrollado en Python con FastAPI para la gestión interna de turnos de una estética.
+🧴 Sistema de Turnos – Clínica Estética
 
-## 🚀 Tecnologías utilizadas
+Backend desarrollado en Python + SQLite para la gestión de turnos en una clínica estética real.
 
-- Python 3
-- FastAPI
-- SQLite
-- Jinja2
-- HTML / CSS
+Este proyecto está construido de manera modular y escalable, siguiendo una evolución por fases, priorizando aprendizaje profundo y arquitectura sólida antes de pensar en SaaS.
 
-## 📌 Estado actual del proyecto
+📌 Estado del Proyecto
+✅ Fase 0 – MVP Funcional
 
-**Fase 0 – MVP funcional**
+Creación básica de turnos
 
-Actualmente el sistema permite:
+Persistencia en SQLite
 
-- Crear clientes
-- Registrar turnos
-- Relacionar turnos con clientes
-- Guardar información en base de datos SQLite
-- Renderizar formulario HTML
-- Estructura básica de arquitectura backend
+Estructura inicial modular
 
-## 🧠 Objetivo del proyecto
+Proyecto subido a GitHub
 
-Desarrollar un sistema de gestión real, comenzando como herramienta interna y evolucionando en futuras fases hacia:
+Separación básica por archivos
 
-- Gestión avanzada de servicios con duración dinámica
-- Validaciones de horario y disponibilidad
-- Estados de turno (pendiente, confirmado, señado, cancelado)
-- Arquitectura profesional en capas
-- Escalabilidad futura (posible SaaS)
+Objetivo: validar que el sistema funcione de punta a punta.
 
-## 🛠 Cómo ejecutar el proyecto
+✅ Fase 1 – Modelado Profesional de Base de Datos
 
-1. Clonar el repositorio
-2. Crear entorno virtual
-3. Instalar dependencias
-4. Ejecutar:
-## 📦 Instalación de dependencias
+Rediseño completo del modelo relacional.
 
-pip install fastapi uvicorn jinja2
+Mejoras implementadas:
 
-uvicorn appturnos.main:app --reload
+Separación clara por capas:
 
-5. Abrir en navegador:
+database.py → conexión a la base
 
-http://127.0.0.1:8000/turnos
+models.py → acceso a datos
 
+logic.py → reglas de negocio
 
----
+main.py → punto de entrada
 
-Proyecto en desarrollo continuo como parte de formación backend profesional.
+Creación de tablas:
 
-## 👤 Autor
+clientes
 
-Desarrollado por Matias Jyaiy como parte de su formación en backend profesional.
+servicios
+
+turnos
+
+turno_clientes (tabla intermedia)
+
+Soporte para:
+
+Turnos individuales
+
+Turnos promocionales (2 clientes)
+
+Historial independiente por cliente
+
+Duración variable por servicio
+
+🧠 Arquitectura del Sistema
+Usuario
+   ↓
+main.py
+   ↓
+logic.py
+   ↓
+models.py
+   ↓
+database.py
+   ↓
+SQLite
+
+Cada capa tiene una responsabilidad específica:
+
+main → Orquestación
+
+logic → Reglas del negocio
+
+models → Operaciones SQL
+
+database → Infraestructura
+
+Esto evita código mezclado y permite escalar sin romper todo.
+
+🗄 Modelo Relacional
+clientes
+
+Información individual de cada persona.
+
+servicios
+
+Duración y características del tratamiento.
+
+turnos
+
+Fecha, hora, estado.
+
+turno_clientes
+
+Relaciona uno o dos clientes con un turno.
+
+Esto permite:
+
+Promociones de 2 personas
+
+Privacidad controlada (mismo box)
+
+Historial clínico individual
+
+Escalabilidad futura
+
+🚀 Próxima Fase – Fase 2
+
+Motor de disponibilidad inteligente:
+
+Control de camillas (2 en el mismo box)
+
+Bloqueo automático de horarios
+
+Validación de superposición
+
+Tiempo obligatorio de desinfección
+
+Cálculo automático según duración del servicio
+
+🛠 Tecnologías
+
+Python 3.13
+
+SQLite
+
+Arquitectura modular
+
+Git
+
+GitHub
+
+🎯 Visión a Futuro
+
+El sistema está diseñado para:
+
+Adaptarse a múltiples estéticas
+
+Convertirse en SaaS
+
+Soportar múltiples sucursales
+
+Implementar autenticación por local
+
+Migrar a base de datos más robusta si fuera necesario
+
+Proyecto en desarrollo activo.
+Construido paso a paso con enfoque técnico, práctico y escalable.
+
+Desarrolado por Matias Jyaiy.
