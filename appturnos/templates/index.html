@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Gestión de Turnos</title>
+
+</head>
+
+<body>
+
+    <h1>Crear Turno</h1>
+
+    <form method="POST" action="/crear_turno">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido" required>
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono" required>
+
+        <label>Fecha:</label>
+        <input type="date" name="fecha" required>
+
+        <label>Hora:</label>
+        <input type="time" name="hora" required>
+
+        <label>servicio:</label>
+        <input type="text" name="servicio" required>
+
+        <button type="submit">Guardar Turno</button>
+    </form>
+
+</body>
+</html>
