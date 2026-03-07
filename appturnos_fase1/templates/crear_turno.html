@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Turno</title>
+</head>
+<body>
+
+    <h1>Reservar Turno</h1>
+
+    {% if request.query_params.get("mensaje") == "ocupado" %}
+    <p style="color: red;">Ese turno ya está dado</p>
+    {% endif %}
+
+    <form action="/crear_turno" method="post">
+
+        <fieldset>
+            <legend><strong>Datos del Cliente</strong></legend>
+
+            <label>Nombre:</label><br>
+            <input type="text" name="nombre" required>
+            <br><br>
+
+            <label>Apellido:</label><br>
+            <input type="text" name="apellido" required>
+            <br><br>
+
+            <label>Teléfono:</label><br>
+            <input type="text" name="telefono" required>
+            <br><br>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend><strong>Datos del Turno</strong></legend>
+
+            <label>Servicio:</label><br>
+                <select name="servicio_id" required>
+                    {% for servicio in servicios %}
+                    <option value="{{ servicio.id }}">
+                    {{ servicio.nombre }} - ${{ servicio.precio }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <br><br>
+
+            <label>Fecha:</label><br>
+            <input type="date" name="fecha" required>
+            <br><br>
+
+            <label>Hora:</label><br>
+            <input type="time" name="hora_inicio" required>
+            <br><br>
+
+        </fieldset>
+
+        <button type="submit">Confirmar Reserva</button>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servicios</title>
+</head>
+<body>
+
+    <h1>Nuestros Servicios</h1>
+
+    {% for servicio in servicios %}
+        <div>
+            <h3>{{ servicio.nombre }}</h3>
+            <p>Precio: ${{ servicio.precio }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+
+</body>
+</html>

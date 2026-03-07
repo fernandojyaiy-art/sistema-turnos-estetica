@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Turnos Registrados</title>
+</head>
+<body>
+
+<h2>Turnos Registrados</h2>
+
+{% if request.query_params.get("mensaje") == "ok" %}
+    <p style="color: green;">Turno creado correctamente</p>
+{% endif %}
+
+<table border="1">
+    <tr>
+        <th>Fecha</th>
+        <th>Horario</th>
+        <th>Servicio</th>
+        <th>Cliente</th>
+        <th>Estado</th>
+    </tr>
+
+    {% for t in turnos %}
+    <tr>
+        <td>{{ t.fecha }}</td>
+        <td>{{ t.hora_inicio }} - {{ t.hora_fin }}</td>
+        <td>{{ t.servicio }}</td>
+        <td>{{ t.cliente }}</td>
+        <td>{{ t.estado }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<a href="/">Volver a crear turno</a>
+
+</body>
+</html>
