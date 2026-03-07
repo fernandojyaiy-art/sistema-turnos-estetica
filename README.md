@@ -1,110 +1,65 @@
 
-🧴 Sistema de Turnos – Clínica Estética
+# Sistema de Turnos para Estética
 
-Backend desarrollado en Python + SQLite para la gestión de turnos en una clínica estética real.
+Aplicación backend desarrollada en Python que permite gestionar turnos para un centro de estética.
 
-Este proyecto está construido de manera modular y escalable, siguiendo una evolución por fases, priorizando aprendizaje profundo y arquitectura sólida antes de pensar en SaaS.
+El sistema permite registrar turnos, validar disponibilidad y visualizar los turnos existentes.
 
-📌 Estado del Proyecto
-✅ Fase 0 – MVP Funcional
+## Tecnologías utilizadas
 
-Creación básica de turnos
+* Python
+* FastAPI
+* SQLite
+* Jinja2
+* Uvicorn
 
-Persistencia en SQLite
+## Funcionalidades
 
-Estructura inicial modular
+* Crear turnos para clientes
+* Validar que no haya superposición de horarios
+* Listar turnos registrados
+* Gestión básica de servicios
 
-Proyecto subido a GitHub
+## Estructura del proyecto
 
-Separación básica por archivos
+appturnos_fase1/
 
-Objetivo: validar que el sistema funcione de punta a punta.
+* main.py → rutas de la aplicación
+* models.py → acceso a base de datos
+* logic.py → lógica de negocio
+* database.py → conexión a la base
+* templates/ → vistas HTML
 
-✅ Fase 1 – Modelado Profesional de Base de Datos
+## Cómo ejecutar el proyecto
 
-Rediseño completo del modelo relacional.
+Clonar el repositorio:
 
-Mejoras implementadas:
+git clone https://github.com/fernandojyaiy-art/sistema-turnos-estetica.git
 
-Separación clara por capas:
+Entrar en la carpeta del proyecto:
 
-database.py → conexión a la base
+cd sistema-turnos-estetica
 
-models.py → acceso a datos
+Instalar dependencias:
 
-logic.py → reglas de negocio
+pip install fastapi uvicorn
 
-main.py → punto de entrada
+Ejecutar el servidor:
 
-Creación de tablas:
+uvicorn appturnos_fase1.main:app --reload
 
-clientes
+Abrir en el navegador:
 
-servicios
+http://127.0.0.1:8000
 
-turnos
+## Estado del proyecto
 
-turno_clientes (tabla intermedia)
+Fase 1 completada:
 
-Soporte para:
+* creación de turnos
+* validación de disponibilidad
+* visualización de turnos
 
-Turnos individuales
-
-Turnos promocionales (2 clientes)
-
-Historial independiente por cliente
-
-Duración variable por servicio
-
-🧠 Arquitectura del Sistema
-Usuario
-   ↓
-main.py
-   ↓
-logic.py
-   ↓
-models.py
-   ↓
-database.py
-   ↓
-SQLite
-
-Cada capa tiene una responsabilidad específica:
-
-main → Orquestación
-
-logic → Reglas del negocio
-
-models → Operaciones SQL
-
-database → Infraestructura
-
-Esto evita código mezclado y permite escalar sin romper todo.
-
-🗄 Modelo Relacional
-clientes
-
-Información individual de cada persona.
-
-servicios
-
-Duración y características del tratamiento.
-
-turnos
-
-Fecha, hora, estado.
-
-turno_clientes
-
-Relaciona uno o dos clientes con un turno.
-
-Esto permite:
-
-Promociones de 2 personas
-
-Privacidad controlada (mismo box)
-
-Historial clínico individual
 
 Escalabilidad futura
 
